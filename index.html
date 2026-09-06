@@ -3,3388 +3,2315 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="theme-color" content="#080018">
 <title>শারদীয়া দুর্গোৎসব ২০২৬ | PROSENJIT RAY</title>
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
-:root{
-    --bg:#070014;
-    --panel:#100022;
-    --text:#ffffff;
-    --muted:#d8c9e8;
-
-    --pink:#ff1493;
-    --red:#ff1744;
-    --orange:#ff9800;
-    --yellow:#ffe600;
-    --green:#00e676;
-    --cyan:#00e5ff;
-    --blue:#2979ff;
-    --purple:#b000ff;
-}
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            #28004d 0%,
-            #100021 35%,
-            #070014 75%
-        );
-
-    color:var(--text);
-
-    font-family:
-        "Noto Sans Bengali",
-        "Noto Serif Bengali",
-        Arial,
-        sans-serif;
-
-    overflow-x:hidden;
+  font-family:"Noto Sans Bengali","Nirmala UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,#29105d 0%,#10052d 35%,#05000f 75%);
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* =========================================================
-   BACKGROUND STARS
-========================================================= */
+/* =========================
+   GLOBAL
+========================= */
 
-#stars{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    overflow:hidden;
+:root{
+  --pink:#ff1493;
+  --red:#ff1744;
+  --orange:#ff7a00;
+  --yellow:#ffe600;
+  --green:#00ff66;
+  --cyan:#00eaff;
+  --blue:#2979ff;
+  --purple:#9c27ff;
+  --violet:#d500f9;
 }
 
-.star-bg{
-    position:absolute;
-
-    width:2px;
-    height:2px;
-
-    background:#fff;
-    border-radius:50%;
-
-    opacity:.7;
-
-    animation:
-        starBlink
-        3s
-        ease-in-out
-        infinite;
+.container{
+  width:min(1180px,94%);
+  margin:auto;
 }
-
-@keyframes starBlink{
-
-    0%,100%{
-        opacity:.15;
-    }
-
-    50%{
-        opacity:1;
-    }
-
-}
-
-/* =========================================================
-   FALLING PETALS
-========================================================= */
-
-.petal{
-    position:fixed;
-
-    top:-30px;
-
-    z-index:50;
-
-    pointer-events:none;
-
-    animation:
-        fallPetal
-        linear
-        forwards;
-}
-
-@keyframes fallPetal{
-
-    0%{
-        transform:
-            translate3d(0,-30px,0)
-            rotate(0deg);
-
-        opacity:0;
-    }
-
-    10%{
-        opacity:.9;
-    }
-
-    100%{
-        transform:
-            translate3d(var(--drift),110vh,0)
-            rotate(540deg);
-
-        opacity:0;
-    }
-
-}
-
-/* =========================================================
-   =========================================================
-   PREMIUM MOVING SHARADIYA HEADLINE
-   =========================================================
-========================================================= */
-
-.headline-box{
-
-    width:100%;
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:5px 0;
-
-    z-index:100;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff004c,
-            #ff8a00,
-            #ffe600,
-            #00e676,
-            #00c8ff,
-            #7c4dff,
-            #ff00c8,
-            #ff004c
-        );
-
-    background-size:400% 100%;
-
-    animation:
-        borderRainbow
-        8s
-        linear
-        infinite;
-
-    box-shadow:
-        0 0 25px
-        rgba(255,0,180,.25);
-}
-
-.headline-inner{
-
-    height:72px;
-
-    background:#0c0d13;
-
-    display:flex;
-
-    align-items:center;
-
-    overflow:hidden;
-
-    position:relative;
-}
-
-.badge{
-
-    position:absolute;
-
-    z-index:10;
-
-    left:0;
-
-    height:72px;
-
-    display:flex;
-
-    align-items:center;
-
-    padding:0 20px;
-
-    color:#fff;
-
-    font-size:16px;
-
-    font-weight:900;
-
-    white-space:nowrap;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff1744,
-            #ff00aa,
-            #6c00ff
-        );
-
-    box-shadow:
-        8px 0 25px
-        rgba(0,0,0,.55);
-}
-
-.badge span{
-
-    display:block;
-
-    animation:
-        blink
-        1.2s
-        infinite;
-}
-
-.ticker-view{
-
-    width:100%;
-
-    overflow:hidden;
-
-    padding-left:155px;
-}
-
-.track{
-
-    display:flex;
-
-    width:max-content;
-
-    white-space:nowrap;
-
-    animation:
-        moveHeadline
-        28s
-        linear
-        infinite;
-}
-
-.item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-
-    margin-right:80px;
-}
-
-.text{
-
-    position:relative;
-
-    padding:10px 22px;
-
-    border-radius:50px;
-
-    font-size:
-        clamp(17px,3vw,25px);
-
-    font-weight:900;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.025)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    box-shadow:
-        inset 0 0 20px
-        rgba(255,255,255,.035),
-
-        0 0 15px
-        rgba(255,0,180,.1);
-}
-
-.rainbow{
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ff9100,
-            #ffeb3b,
-            #00e676,
-            #00b0ff,
-            #7c4dff,
-            #ff00c8,
-            #ff1744
-        );
-
-    background-size:400% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        5s
-        linear
-        infinite;
-}
-
-.credit{
-
-    padding:11px 25px;
-
-    border-radius:14px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,0,100,.15),
-            rgba(100,0,255,.15)
-        );
-}
-
-.star-headline{
-
-    font-size:25px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ffe600,
-            #00e676,
-            #00b0ff,
-            #ff00c8
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        spinStar
-        3s
-        linear
-        infinite;
-}
-
-@keyframes moveHeadline{
-
-    from{
-        transform:
-            translateX(100vw);
-    }
-
-    to{
-        transform:
-            translateX(-100%);
-    }
-
-}
-
-@keyframes rainbowText{
-
-    from{
-        background-position:
-            0% 50%;
-    }
-
-    to{
-        background-position:
-            400% 50%;
-    }
-
-}
-
-@keyframes borderRainbow{
-
-    from{
-        background-position:
-            0% 50%;
-    }
-
-    to{
-        background-position:
-            400% 50%;
-    }
-
-}
-
-@keyframes blink{
-
-    0%,100%{
-        opacity:1;
-    }
-
-    50%{
-        opacity:.35;
-    }
-
-}
-
-@keyframes spinStar{
-
-    from{
-        transform:
-            rotate(0deg);
-    }
-
-    to{
-        transform:
-            rotate(360deg);
-    }
-
-}
-
-/* =========================================================
-   COMMON SECTION
-========================================================= */
 
 section{
-
-    position:relative;
-
-    z-index:2;
-
-    width:
-        min(1180px,94%);
-
-    margin:
-        0 auto 45px;
+  padding:55px 0;
+  position:relative;
 }
 
 .section-title{
-
-    text-align:center;
-
-    margin-bottom:25px;
+  text-align:center;
+  font-size:clamp(28px,5vw,48px);
+  margin-bottom:35px;
+  font-weight:900;
+  background:linear-gradient(
+    90deg,
+    #ff1744,
+    #ff7a00,
+    #ffe600,
+    #00ff66,
+    #00eaff,
+    #2979ff,
+    #9c27ff,
+    #ff1493
+  );
+  background-size:400% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:rainbow 8s linear infinite;
 }
 
-.section-title h2{
-
-    font-size:
-        clamp(25px,4vw,42px);
-
-    font-weight:900;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ff9800,
-            #ffe600,
-            #00e676,
-            #00e5ff,
-            #2979ff,
-            #b000ff,
-            #ff1493
-        );
-
-    background-size:300% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        7s
-        linear
-        infinite;
+@keyframes rainbow{
+  0%{background-position:0% 50%}
+  100%{background-position:400% 50%}
 }
 
-.section-title p{
+/* =========================
+   TOP MOVING HEADLINE
+========================= */
 
-    margin-top:7px;
-
-    color:#d8c9e8;
+.top-headline{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#05000f;
+  border-bottom:2px solid #ff1493;
+  box-shadow:
+    0 0 12px #ff1493,
+    0 0 25px rgba(255,20,147,.5);
 }
 
-/* =========================================================
+.moving-track{
+  white-space:nowrap;
+  display:inline-block;
+  animation:marquee 15s linear infinite;
+  font-size:clamp(18px,3vw,30px);
+  font-weight:900;
+  letter-spacing:2px;
+  background:linear-gradient(
+    90deg,
+    #ff1744,
+    #ff7a00,
+    #ffe600,
+    #00ff66,
+    #00eaff,
+    #2979ff,
+    #9c27ff,
+    #ff1493
+  );
+  background-size:400% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:
+    marquee 15s linear infinite,
+    rainbow 5s linear infinite;
+}
+
+@keyframes marquee{
+  0%{
+    transform:translateX(100%);
+  }
+  100%{
+    transform:translateX(-100%);
+  }
+}
+
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 
-    min-height:620px;
-
-    width:100%;
-
-    margin:
-        0 0 50px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,0,20,.12),
-            rgba(7,0,20,.82)
-        ),
-        url("assets/hero.jpg")
-        center/cover no-repeat;
-
-    border-bottom:
-        2px solid
-        #ff1493;
-
-    box-shadow:
-        0 0 18px
-        #ff1493,
-
-        0 0 50px
-        rgba(255,20,147,.35);
+  background:
+    linear-gradient(
+      rgba(7,0,25,.35),
+      rgba(7,0,25,.72)
+    ),
+    url("hero.jpg") center/cover no-repeat;
 }
 
 .hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(255,255,255,.12),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,0,128,.12),
-            transparent,
-            rgba(0,229,255,.12)
-        );
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      transparent 0 25%,
+      rgba(255,0,180,.08) 45%,
+      rgba(0,0,0,.55) 100%
+    );
 }
 
 .hero-content{
-
-    position:relative;
-
-    z-index:3;
-
-    width:
-        min(900px,92%);
-
-    text-align:center;
-
-    padding:30px;
+  position:relative;
+  z-index:3;
+  padding:30px 15px;
 }
 
 .hero-small{
-
-    font-size:
-        clamp(14px,2vw,20px);
-
-    color:#ffe7ff;
-
-    letter-spacing:2px;
-
-    margin-bottom:15px;
+  font-size:clamp(16px,3vw,24px);
+  font-weight:700;
+  margin-bottom:15px;
+  color:#ffe600;
+  text-shadow:0 0 12px #ffe600;
 }
 
 .hero h1{
+  font-size:clamp(42px,9vw,90px);
+  line-height:1.05;
+  font-weight:1000;
 
-    font-size:
-        clamp(38px,8vw,78px);
+  background:linear-gradient(
+    90deg,
+    #ff1744,
+    #ff7a00,
+    #ffe600,
+    #00ff66,
+    #00eaff,
+    #2979ff,
+    #9c27ff,
+    #ff1493,
+    #ff1744
+  );
+  background-size:500% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 
-    line-height:1.08;
+  animation:rainbow 7s linear infinite;
 
-    font-weight:1000;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ff9800,
-            #ffe600,
-            #00e676,
-            #00e5ff,
-            #2979ff,
-            #b000ff,
-            #ff1493,
-            #ff1744
-        );
-
-    background-size:400% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        8s
-        linear
-        infinite;
+  filter:
+    drop-shadow(0 0 8px rgba(255,20,147,.8))
+    drop-shadow(0 0 22px rgba(0,234,255,.4));
 }
 
 .hero-sub{
-
-    margin-top:20px;
-
-    font-size:
-        clamp(22px,4vw,40px);
-
-    font-weight:800;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 10px #ff1493,
-        0 0 25px #2979ff;
+  margin-top:20px;
+  font-size:clamp(20px,4vw,34px);
+  font-weight:900;
+  color:#fff;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 18px #ff1493,
+    0 0 30px #00eaff;
 }
 
 .hero-quote{
-
-    margin:
-        22px auto 0;
-
-    max-width:650px;
-
-    color:#f5dfff;
-
-    font-size:
-        clamp(14px,2vw,18px);
-
-    line-height:1.8;
+  margin:25px auto 0;
+  max-width:750px;
+  font-size:clamp(15px,2.5vw,21px);
+  line-height:1.8;
+  color:#f6ddff;
 }
 
-/* =========================================================
+/* =========================
    MUSIC
-========================================================= */
+========================= */
 
-.music-card{
+.music-box{
+  width:min(850px,100%);
+  margin:auto;
+  padding:20px;
+  border-radius:25px;
 
-    position:relative;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,20,147,.13),
+      rgba(0,234,255,.08)
+    );
 
-    overflow:hidden;
+  border:2px solid #ff1493;
 
-    display:grid;
-
-    grid-template-columns:
-        180px 1fr;
-
-    gap:25px;
-
-    align-items:center;
-
-    padding:25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,20,147,.10),
-            rgba(41,121,255,.08)
-        ),
-        rgba(16,0,34,.92);
-
-    border:
-        2px solid
-        #ff1493;
-
-    border-radius:25px;
-
-    box-shadow:
-        0 0 12px #ff1493,
-        0 0 30px
-        rgba(255,20,147,.2);
+  box-shadow:
+    0 0 15px rgba(255,20,147,.6),
+    inset 0 0 20px rgba(0,234,255,.08);
 }
 
-.music-image{
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:
-        4px solid
-        #ffe600;
-
-    box-shadow:
-        0 0 12px #ffe600,
-        0 0 30px #ff1493;
-
-    animation:
-        slowSpin
-        18s
-        linear
-        infinite;
+.music-inner{
+  display:flex;
+  align-items:center;
+  gap:22px;
 }
 
-@keyframes slowSpin{
+.music-cover{
+  width:150px;
+  height:150px;
+  flex:0 0 150px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid #00eaff;
 
-    to{
-        transform:
-            rotate(360deg);
-    }
+  box-shadow:
+    0 0 12px #00eaff,
+    0 0 30px rgba(255,20,147,.5);
 
+  animation:spinSlow 18s linear infinite;
 }
 
-.music-info h2{
-
-    font-size:
-        clamp(22px,4vw,35px);
-
-    margin-bottom:10px;
+.music-cover img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.music-info p{
+@keyframes spinSlow{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
 
-    color:#d8c9e8;
+.music-info{
+  flex:1;
+}
 
-    margin-bottom:15px;
+.music-title{
+  font-size:clamp(22px,4vw,34px);
+  font-weight:900;
+  margin-bottom:12px;
+
+  background:linear-gradient(
+    90deg,
+    #ffe600,
+    #ff1493,
+    #00eaff
+  );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 audio{
-
-    width:100%;
-
-    max-width:600px;
+  width:100%;
+  margin-top:8px;
 }
 
 .wave{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:4px;
-
-    height:45px;
-
-    margin-top:18px;
-
-    overflow:hidden;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  height:35px;
+  margin-top:15px;
+  overflow:hidden;
 }
 
 .wave span{
+  display:block;
+  width:5px;
+  min-width:5px;
+  height:10px;
+  border-radius:10px;
 
-    width:4px;
+  background:linear-gradient(
+    #ff1493,
+    #00eaff
+  );
 
-    min-width:4px;
-
-    height:15px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ff1744,
-            #ffe600,
-            #00e676,
-            #00e5ff,
-            #b000ff
-        );
-
-    border-radius:10px;
-
-    animation:
-        wave
-        1.1s
-        ease-in-out
-        infinite;
+  animation:wave 1s ease-in-out infinite alternate;
 }
 
 .wave span:nth-child(2n){
-    animation-delay:.15s;
+  animation-delay:.12s;
 }
-
 .wave span:nth-child(3n){
-    animation-delay:.3s;
+  animation-delay:.24s;
+}
+.wave span:nth-child(4n){
+  animation-delay:.36s;
 }
 
 @keyframes wave{
-
-    0%,100%{
-        height:10px;
-    }
-
-    50%{
-        height:38px;
-    }
-
+  from{height:6px}
+  to{height:30px}
 }
 
-/* =========================================================
-   COUNTDOWN TITLE
-========================================================= */
+/* =========================
+   COUNTDOWN
+========================= */
 
-.countdown-title-box{
-
-    text-align:center;
-
-    padding:20px;
-
-    margin-bottom:25px;
-
-    border:
-        2px solid
-        #00e5ff;
-
-    border-radius:22px;
-
-    background:
-        rgba(10,0,30,.75);
-
-    box-shadow:
-        0 0 12px #00e5ff,
-        0 0 35px
-        rgba(0,229,255,.18);
+.countdown-section{
+  padding-top:45px;
 }
-
-.countdown-title-box h2{
-
-    font-size:
-        clamp(25px,5vw,43px);
-
-    background:
-        linear-gradient(
-            90deg,
-            #00e5ff,
-            #b000ff,
-            #ff1493,
-            #ff9800,
-            #ffe600,
-            #00e676,
-            #00e5ff
-        );
-
-    background-size:350% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        6s
-        linear
-        infinite;
-}
-
-/* =========================================================
-   DUAL GRID
-========================================================= */
 
 .countdown-grid{
+  display:grid;
 
-    display:grid;
+  /*
+     সব screen-এ dual / multi-column
+  */
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(0,1fr)
-        );
-
-    gap:20px;
-
-    width:100%;
+  gap:22px;
 }
 
-/* =========================================================
-   PUJA CARD
-========================================================= */
+/* =========================
+   CARD
+========================= */
 
-.puja-card{
+.count-card{
+  --card-color:#00eaff;
 
-    --card-color:#00e5ff;
+  position:relative;
+  min-width:0;
+  overflow:hidden;
 
-    position:relative;
+  border:2px solid var(--card-color);
+  border-radius:24px;
 
-    min-width:0;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(0,0,0,.38)
+    );
 
-    overflow:hidden;
+  box-shadow:
+    0 0 10px var(--card-color),
+    inset 0 0 18px color-mix(
+      in srgb,
+      var(--card-color) 15%,
+      transparent
+    );
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015)
-        ),
-        rgba(10,0,28,.94);
-
-    border:
-        2px solid
-        var(--card-color);
-
-    border-radius:24px;
-
-    box-shadow:
-        0 0 7px
-        var(--card-color),
-
-        0 0 18px
-        var(--card-color);
-
-    animation:
-        cardPulse
-        3s
-        ease-in-out
-        infinite;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-@keyframes cardPulse{
+.count-card:hover{
+  transform:translateY(-5px);
 
-    0%,100%{
-
-        box-shadow:
-            0 0 6px
-            var(--card-color),
-
-            0 0 16px
-            var(--card-color);
-    }
-
-    50%{
-
-        box-shadow:
-            0 0 10px
-            var(--card-color),
-
-            0 0 26px
-            var(--card-color);
-    }
-
+  box-shadow:
+    0 0 15px var(--card-color),
+    0 0 35px color-mix(
+      in srgb,
+      var(--card-color) 45%,
+      transparent
+    );
 }
 
-.puja-card:hover{
+/* rainbow moving highlight */
 
-    transform:
-        translateY(-5px);
+.count-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:0;
+  border-radius:25px;
 
-    box-shadow:
-        0 0 12px
-        var(--card-color),
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--card-color),
+    transparent
+  );
 
-        0 0 35px
-        var(--card-color);
+  opacity:.25;
+  animation:borderSweep 4s linear infinite;
 }
 
-/* =========================================================
-   EACH CARD UNIQUE COLOR
-========================================================= */
-
-.card-mahalaya{
-    --card-color:#ff1493;
-}
-
-.card-shashthi{
-    --card-color:#ff9800;
-}
-
-.card-saptami{
-    --card-color:#00e676;
-}
-
-.card-ashtami{
-    --card-color:#00e5ff;
-}
-
-.card-navami{
-    --card-color:#b000ff;
-}
-
-.card-dashami{
-    --card-color:#ffe600;
-}
-
-.card-kali{
-    --card-color:#ff1744;
-}
-
-.card-saraswati{
-    --card-color:#2979ff;
-}
-
-/* =========================================================
-   CARD SHINE
-========================================================= */
-
-.puja-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:-120%;
-
-    width:80%;
-
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.12),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    animation:
-        cardShine
-        5s
-        ease-in-out
-        infinite;
-
-    pointer-events:none;
-}
-
-@keyframes cardShine{
-
-    0%,60%{
-        left:-120%;
-    }
-
-    100%{
-        left:150%;
-    }
-
-}
-
-/* =========================================================
-   CARD IMAGE
-========================================================= */
-
-.puja-card img{
-
-    display:block;
-
-    width:100%;
-
-    height:230px;
-
-    object-fit:cover;
-
-    border-bottom:
-        2px solid
-        var(--card-color);
-
-    filter:
-        saturate(1.08);
+@keyframes borderSweep{
+  0%{
+    transform:translateX(-100%);
+  }
+  100%{
+    transform:translateX(100%);
+  }
 }
 
 .card-content{
-
-    padding:18px;
-
-    text-align:center;
+  position:relative;
+  z-index:2;
 }
 
-.card-content h3{
-
-    font-size:
-        clamp(21px,3vw,29px);
-
-    margin-bottom:15px;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 8px
-        var(--card-color),
-
-        0 0 18px
-        var(--card-color);
+.card-image{
+  width:100%;
+  height:230px;
+  overflow:hidden;
 }
 
-.card-date{
-
-    color:#d9c8e8;
-
-    font-size:14px;
-
-    margin-bottom:15px;
+.card-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:transform .5s ease;
 }
 
-/* =========================================================
-   COUNTDOWN NUMBERS
-========================================================= */
+.count-card:hover .card-image img{
+  transform:scale(1.05);
+}
+
+.card-body{
+  padding:20px;
+}
+
+.card-title{
+  text-align:center;
+  font-size:clamp(21px,3vw,30px);
+  font-weight:900;
+  margin-bottom:5px;
+  color:#fff;
+
+  text-shadow:
+    0 0 7px var(--card-color),
+    0 0 16px var(--card-color);
+}
+
+.card-year{
+  text-align:center;
+  color:#d8c9ff;
+  font-size:14px;
+  margin-bottom:17px;
+}
 
 .countdown{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:8px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
 }
 
 .time-box{
+  min-width:0;
+  padding:10px 4px;
+  border-radius:12px;
 
-    padding:
-        12px 5px;
+  background:rgba(0,0,0,.38);
 
-    background:
-        rgba(0,0,0,.28);
+  border:1px solid
+    color-mix(
+      in srgb,
+      var(--card-color) 60%,
+      transparent
+    );
 
-    border:
-        1px solid
-        var(--card-color);
-
-    border-radius:12px;
-
-    box-shadow:
-        inset 0 0 8px
-        rgba(255,255,255,.04);
+  text-align:center;
 }
 
 .time-number{
-
-    display:block;
-
-    font-size:
-        clamp(21px,3.5vw,34px);
-
-    font-weight:900;
-
-    color:#fff;
-
-    text-shadow:
-        0 0 8px
-        var(--card-color);
+  font-size:clamp(18px,4vw,28px);
+  font-weight:1000;
+  color:var(--card-color);
+  text-shadow:0 0 10px var(--card-color);
 }
 
 .time-label{
-
-    display:block;
-
-    margin-top:3px;
-
-    font-size:11px;
-
-    color:#e8d9f4;
+  font-size:11px;
+  color:#eee;
+  margin-top:3px;
 }
 
-.next-year{
-
-    margin-top:12px;
-
-    font-size:13px;
-
-    color:var(--card-color);
-
-    text-shadow:
-        0 0 8px
-        var(--card-color);
+.card-date{
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#cdbfff;
 }
 
-/* =========================================================
-   INTRO
-========================================================= */
+/* Unique colors */
 
-.intro{
-
-    padding:30px;
-
-    border:
-        2px solid
-        #b000ff;
-
-    border-radius:25px;
-
-    background:
-        rgba(15,0,35,.85);
-
-    box-shadow:
-        0 0 12px #b000ff,
-        0 0 30px
-        rgba(176,0,255,.2);
-
-    text-align:center;
+.mahalaya{
+  --card-color:#ff1493;
 }
 
-.intro h2{
-
-    margin-bottom:15px;
-
-    font-size:
-        clamp(25px,4vw,38px);
+.shashthi{
+  --card-color:#ff7a00;
 }
 
-.intro p{
-
-    color:#e4d7ed;
-
-    line-height:1.9;
-
-    font-size:16px;
+.saptami{
+  --card-color:#00ff66;
 }
 
-/* =========================================================
+.ashtami{
+  --card-color:#00eaff;
+}
+
+.navami{
+  --card-color:#9c27ff;
+}
+
+.dashami{
+  --card-color:#ffe600;
+}
+
+.kali{
+  --card-color:#ff1744;
+}
+
+.saraswati{
+  --card-color:#2979ff;
+}
+
+/* =========================
    TIMELINE
-========================================================= */
+========================= */
 
 .timeline{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
 
-    display:grid;
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:3px;
+  transform:translateX(-50%);
 
-    grid-template-columns:
-        repeat(
-            3,
-            minmax(0,1fr)
-        );
+  background:linear-gradient(
+    #ff1744,
+    #ff7a00,
+    #ffe600,
+    #00ff66,
+    #00eaff,
+    #2979ff,
+    #9c27ff,
+    #ff1493
+  );
 
-    gap:16px;
+  box-shadow:0 0 12px #ff1493;
 }
 
 .timeline-item{
-
-    padding:20px;
-
-    border:
-        2px solid
-        #ff9800;
-
-    border-radius:18px;
-
-    background:
-        rgba(18,0,35,.9);
-
-    box-shadow:
-        0 0 8px
-        #ff9800;
-
-    transition:.25s;
+  position:relative;
+  width:50%;
+  padding:15px 35px;
 }
 
-.timeline-item:nth-child(2){
-
-    border-color:#00e676;
-
-    box-shadow:
-        0 0 8px
-        #00e676;
+.timeline-item:nth-child(odd){
+  left:0;
+  text-align:right;
 }
 
-.timeline-item:nth-child(3){
-
-    border-color:#00e5ff;
-
-    box-shadow:
-        0 0 8px
-        #00e5ff;
+.timeline-item:nth-child(even){
+  left:50%;
 }
 
-.timeline-item:nth-child(4){
+.timeline-dot{
+  position:absolute;
+  top:25px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
 
-    border-color:#2979ff;
+  background:#fff;
 
-    box-shadow:
-        0 0 8px
-        #2979ff;
+  box-shadow:
+    0 0 8px #fff,
+    0 0 20px #ff1493;
 }
 
-.timeline-item:nth-child(5){
-
-    border-color:#b000ff;
-
-    box-shadow:
-        0 0 8px
-        #b000ff;
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-8px;
 }
 
-.timeline-item:nth-child(6){
-
-    border-color:#ff1493;
-
-    box-shadow:
-        0 0 8px
-        #ff1493;
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-8px;
 }
 
-.timeline-item:hover{
+.timeline-box{
+  padding:18px;
+  border:1px solid #9c27ff;
+  border-radius:18px;
+  background:rgba(255,255,255,.045);
 
-    transform:
-        translateY(-4px);
+  box-shadow:
+    0 0 10px rgba(156,39,255,.35);
 }
 
-.timeline-item h3{
-
-    margin-bottom:8px;
+.timeline-box h3{
+  color:#ffe600;
+  margin-bottom:5px;
 }
 
-.timeline-item p{
-
-    color:#d8c9e8;
-
-    font-size:14px;
+.timeline-box p{
+  color:#d9ceef;
+  font-size:14px;
 }
 
-/* =========================================================
+/* =========================
    VIDEO
-========================================================= */
+========================= */
 
-.video-card{
+.video-box{
+  width:min(950px,100%);
+  margin:auto;
+  border:2px solid #00eaff;
+  border-radius:25px;
+  overflow:hidden;
 
-    padding:20px;
+  background:#030008;
 
-    border:
-        2px solid
-        #00e5ff;
-
-    border-radius:25px;
-
-    background:
-        rgba(10,0,28,.92);
-
-    box-shadow:
-        0 0 12px #00e5ff,
-
-        0 0 30px
-        rgba(0,229,255,.18);
+  box-shadow:
+    0 0 15px #00eaff,
+    0 0 35px rgba(255,20,147,.25);
 }
 
-.video-card video{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:18px;
-
-    border:
-        1px solid
-        #00e5ff;
-
-    background:#000;
+.video-box video{
+  width:100%;
+  display:block;
+  max-height:600px;
+  background:#000;
 }
 
-/* =========================================================
+/* =========================
    FINAL
-========================================================= */
+========================= */
 
-.final-message{
+.final-box{
+  text-align:center;
+  padding:65px 20px;
 
-    text-align:center;
+  border-radius:30px;
 
-    padding:
-        35px 20px;
+  border:2px solid #ff1493;
 
-    border:
-        2px solid
-        #ff1493;
+  background:
+    linear-gradient(
+      rgba(5,0,20,.7),
+      rgba(5,0,20,.8)
+    ),
+    url("footer.jpg") center/cover no-repeat;
 
-    border-radius:25px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,20,147,.12),
-            transparent 65%
-        ),
-        rgba(12,0,28,.9);
-
-    box-shadow:
-        0 0 12px #ff1493,
-
-        0 0 35px
-        rgba(255,20,147,.2);
+  box-shadow:
+    0 0 20px rgba(255,20,147,.5);
 }
 
-.final-message h2{
+.final-box h2{
+  font-size:clamp(30px,6vw,60px);
 
-    font-size:
-        clamp(27px,5vw,48px);
+  background:linear-gradient(
+    90deg,
+    #ffe600,
+    #ff1493,
+    #00eaff,
+    #9c27ff
+  );
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ff9800,
-            #ffe600,
-            #00e676,
-            #00e5ff,
-            #2979ff,
-            #b000ff,
-            #ff1493
-        );
+  background-size:300% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 
-    background-size:300% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        6s
-        linear
-        infinite;
+  animation:rainbow 5s linear infinite;
 }
 
-.final-message p{
-
-    margin-top:13px;
-
-    color:#e5d8ef;
-
-    line-height:1.8;
+.final-box p{
+  margin-top:15px;
+  color:#eee;
+  font-size:17px;
 }
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer{
+  position:relative;
+  text-align:center;
+  padding:60px 15px 45px;
 
-    position:relative;
+  background:
+    linear-gradient(
+      rgba(3,0,14,.76),
+      rgba(3,0,14,.92)
+    ),
+    url("footer.jpg") center/cover no-repeat;
 
-    z-index:2;
+  border-top:2px solid #9c27ff;
 
-    padding:
-        45px 20px 55px;
-
-    text-align:center;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,0,20,.1),
-            rgba(7,0,20,.85)
-        ),
-        url("assets/footer.jpg")
-        center/cover no-repeat;
-
-    border-top:
-        2px solid
-        #b000ff;
-
-    box-shadow:
-        0 -5px 30px
-        rgba(176,0,255,.25);
+  box-shadow:
+    0 -5px 25px rgba(156,39,255,.3);
 }
 
-footer h2{
+.footer-title{
+  font-size:clamp(27px,6vw,45px);
+  font-weight:900;
 
-    font-size:
-        clamp(28px,6vw,50px);
+  background:linear-gradient(
+    90deg,
+    #ff1744,
+    #ff7a00,
+    #ffe600,
+    #00ff66,
+    #00eaff,
+    #2979ff,
+    #9c27ff,
+    #ff1493
+  );
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff1744,
-            #ff9800,
-            #ffe600,
-            #00e676,
-            #00e5ff,
-            #2979ff,
-            #b000ff,
-            #ff1493
-        );
+  background-size:400% 100%;
 
-    background-size:300% auto;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        rainbowText
-        6s
-        linear
-        infinite;
+  animation:rainbow 5s linear infinite;
 }
-
-/* =========================================================
-   FOOTER LETTERS
-========================================================= */
 
 .footer-letter-line{
+  min-height:55px;
+  margin-top:20px;
 
-    display:flex;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:2px;
 
-    justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    margin-top:18px;
-
-    min-height:50px;
-
-    font-weight:900;
+  font-size:clamp(25px,5vw,45px);
+  font-weight:1000;
 }
 
 .footer-letter{
+  display:inline-block;
 
-    display:inline-block;
+  color:var(--c);
 
-    font-size:
-        clamp(22px,5vw,42px);
+  text-shadow:
+    0 0 5px var(--c),
+    0 0 12px var(--c),
+    0 0 25px var(--c);
 
-    color:var(--c);
+  opacity:0;
+  transform:
+    translateY(25px)
+    scale(.6);
 
-    text-shadow:
-        0 0 5px var(--c),
-        0 0 12px var(--c),
-        0 0 25px var(--c);
-
-    opacity:0;
-
-    animation:
-        footerLetterLoop
-        3.8s
-        ease-in-out
-        infinite;
-
-    animation-delay:
-        var(--d);
+  animation:
+    footerLetterLoop
+    7s ease-in-out
+    var(--d)
+    infinite;
 }
 
 @keyframes footerLetterLoop{
+  0%{
+    opacity:0;
+    transform:
+      translateY(25px)
+      scale(.6);
+  }
 
-    0%{
+  10%{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
 
-        opacity:0;
+  25%{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
 
-        transform:
-            translateY(15px)
-            scale(.75);
-    }
+  38%{
+    opacity:.95;
+    transform:
+      translateY(-5px)
+      scale(1.04);
+  }
 
-    12%{
+  50%{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
 
-        opacity:1;
+  72%{
+    opacity:1;
+  }
 
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    65%{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    80%{
-
-        opacity:0;
-
-        transform:
-            translateY(-10px)
-            scale(.85);
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            translateY(-10px)
-            scale(.85);
-    }
-
+  100%{
+    opacity:0;
+    transform:
+      translateY(-18px)
+      scale(.75);
+  }
 }
 
 .footer-credit{
-
-    margin-top:25px;
-
-    color:#d8c9e8;
-
-    font-size:13px;
-
-    letter-spacing:2px;
+  margin-top:25px;
+  letter-spacing:5px;
+  font-size:14px;
+  color:#cbbbe9;
 }
 
-/* =========================================================
-   REVEAL
-========================================================= */
+/* =========================
+   PETALS
+========================= */
 
-.reveal{
+.petals{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100;
+  overflow:hidden;
+}
 
-    opacity:0;
+.petal{
+  position:absolute;
+  top:-30px;
 
+  width:8px;
+  height:13px;
+
+  border-radius:
+    60% 40% 60% 40%;
+
+  background:#ff8bcf;
+
+  box-shadow:
+    0 0 6px #ff1493;
+
+  animation:
+    fall linear forwards;
+}
+
+@keyframes fall{
+  from{
     transform:
-        translateY(25px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-.reveal.show{
-
+      translate3d(0,-30px,0)
+      rotate(0deg);
     opacity:1;
+  }
 
+  to{
     transform:
-        translateY(0);
+      translate3d(var(--x),110vh,0)
+      rotate(500deg);
+    opacity:0;
+  }
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* =========================
+   STARS
+========================= */
 
-@media(max-width:800px){
-
-    .hero{
-        min-height:520px;
-    }
-
-    .music-card{
-
-        grid-template-columns:
-            1fr;
-
-        text-align:center;
-    }
-
-    .music-image{
-
-        margin:auto;
-
-        width:150px;
-
-        height:150px;
-    }
-
-    .timeline{
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
-    }
-
-    .puja-card img{
-
-        height:210px;
-    }
-
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
 }
 
-/* =========================================================
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+
+  box-shadow:0 0 6px #fff;
+
+  animation:twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:1}
+}
+
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media(max-width:600px){
 
-    section{
+  section{
+    padding:40px 0;
+  }
 
-        width:94%;
+  .hero{
+    min-height:560px;
+  }
 
-        margin-bottom:35px;
-    }
+  .music-inner{
+    flex-direction:column;
+    text-align:center;
+  }
 
-    /* HEADLINE */
+  .music-cover{
+    width:125px;
+    height:125px;
+    flex-basis:125px;
+  }
 
-    .headline-inner{
+  /*
+     Mobile-এও 2-column
+  */
 
-        height:62px;
-    }
+  .countdown-grid{
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
 
-    .badge{
+    gap:10px;
+  }
 
-        height:62px;
+  .card-image{
+    height:130px;
+  }
 
-        padding:
-            0 13px;
+  .card-body{
+    padding:11px;
+  }
 
-        font-size:13px;
-    }
+  .card-title{
+    font-size:17px;
+    line-height:1.25;
+  }
 
-    .ticker-view{
+  .card-year{
+    font-size:10px;
+    margin-bottom:10px;
+  }
 
-        padding-left:120px;
-    }
+  .countdown{
+    gap:3px;
+  }
 
-    .text{
+  .time-box{
+    padding:6px 2px;
+    border-radius:8px;
+  }
 
-        padding:
-            8px 17px;
+  .time-number{
+    font-size:15px;
+  }
 
-        font-size:17px;
-    }
+  .time-label{
+    font-size:8px;
+  }
 
-    .item{
+  .card-date{
+    font-size:9px;
+    margin-top:9px;
+  }
 
-        gap:10px;
+  .timeline::before{
+    left:10px;
+  }
 
-        margin-right:50px;
-    }
+  .timeline-item,
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd){
+    width:100%;
+    left:0;
+    padding:
+      12px
+      10px
+      12px
+      35px;
+    text-align:left;
+  }
 
-    .star-headline{
+  .timeline-item:nth-child(odd) .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot{
+    left:2px;
+    right:auto;
+  }
 
-        font-size:19px;
-    }
-
-    /* HERO */
-
-    .hero{
-
-        min-height:480px;
-    }
-
-    .hero-content{
-
-        padding:20px;
-    }
-
-    /* DUAL -> MOBILE SINGLE */
-
-    .countdown-grid{
-
-        grid-template-columns:
-            1fr;
-
-        gap:16px;
-    }
-
-    .timeline{
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .puja-card img{
-
-        height:220px;
-    }
-
-    .countdown{
-
-        gap:6px;
-    }
-
-    .time-box{
-
-        padding:
-            10px 3px;
-    }
-
-    .time-number{
-
-        font-size:24px;
-    }
-
-    .time-label{
-
-        font-size:10px;
-    }
-
-    .music-card{
-
-        padding:18px;
-    }
-
-    .intro{
-
-        padding:
-            22px 18px;
-    }
-
+  .footer-letter-line{
+    font-size:27px;
+  }
 }
 
-/* =========================================================
+/* =========================
+   EXTRA SMALL
+========================= */
+
+@media(max-width:380px){
+
+  .countdown-grid{
+    gap:7px;
+  }
+
+  .card-image{
+    height:110px;
+  }
+
+  .card-body{
+    padding:8px;
+  }
+
+  .card-title{
+    font-size:15px;
+  }
+
+  .time-number{
+    font-size:13px;
+  }
+
+  .time-label{
+    font-size:7px;
+  }
+
+  .card-date{
+    font-size:8px;
+  }
+}
+
+/* =========================
    REDUCED MOTION
-========================================================= */
+========================= */
 
 @media(prefers-reduced-motion:reduce){
 
-    html{
-        scroll-behavior:auto;
-    }
+  html{
+    scroll-behavior:auto;
+  }
 
-    .headline-box,
-    .track,
-    .rainbow,
-    .star-headline,
-    .hero h1,
-    .section-title h2,
-    .countdown-title-box h2,
-    .final-message h2,
-    footer h2,
-    .footer-letter,
-    .puja-card,
-    .music-image,
-    .wave span,
-    .petal{
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-    }
-
+  .moving-track,
+  .footer-letter,
+  .hero h1,
+  .section-title,
+  .music-cover,
+  .wave span,
+  .final-box h2{
+    animation-duration:1ms !important;
+    animation-iteration-count:1 !important;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- =======================================================
-     BACKGROUND
-======================================================== -->
+<!-- =========================
+     TOP MOVING HEADLINE
+========================= -->
 
-<div id="stars"></div>
-
-
-<!-- =======================================================
-     TOP PREMIUM SHARADIYA HEADLINE
-======================================================== -->
-
-<div class="headline-box">
-
-    <div class="headline-inner">
-
-        <div class="badge">
-            <span>🔴 শুভেচ্ছা</span>
-        </div>
-
-        <div class="ticker-view">
-
-            <div class="track">
-
-                <!-- ITEM 1 -->
-
-                <div class="item">
-
-                    <div class="text rainbow">
-                        🌸 শুভ শারদীয়া 🌸
-                    </div>
-
-                    <div class="star-headline">
-                        ✦
-                    </div>
-
-                    <div class="text rainbow">
-                        🪷 শারদীয় দুর্গাপূজার আন্তরিক প্রীতি ও শুভেচ্ছা 🪷
-                    </div>
-
-                </div>
-
-
-                <!-- ITEM 2 -->
-
-                <div class="item">
-
-                    <div class="text rainbow">
-                        ✨ মা দুর্গার আশীর্বাদে সবার জীবন সুখ ও শান্তিতে ভরে উঠুক ✨
-                    </div>
-
-                    <div class="star-headline">
-                        ✦
-                    </div>
-
-                    <div class="text rainbow">
-                        🙏 জয় মা দুর্গা 🙏
-                    </div>
-
-                </div>
-
-
-                <!-- ITEM 3 -->
-
-                <div class="item">
-
-                    <div class="text credit">
-
-                        <span style="color:#ddd;">
-                            — শুভেচ্ছান্তে —
-                        </span>
-
-                        &nbsp;
-
-                        <span class="rainbow">
-                            🌺 Prosenjit Ray 🌺
-                        </span>
-
-                    </div>
-
-                    <div class="star-headline">
-                        ✦
-                    </div>
-
-                </div>
-
-
-                <!-- DUPLICATE LOOP -->
-
-                <div class="item">
-
-                    <div class="text rainbow">
-                        🌸 শুভ শারদীয়া 🌸
-                    </div>
-
-                    <div class="star-headline">
-                        ✦
-                    </div>
-
-                    <div class="text rainbow">
-                        🪷 শারদীয় দুর্গাপূজার আন্তরিক প্রীতি ও শুভেচ্ছা 🪷
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<div class="top-headline">
+  <div class="moving-track">
+    🌸✨ শারদীয়া দুর্গোৎসব ২০২৬ ✨ মা আসছেন ✨ শুভ শারদীয়া ✨ জয় মা দুর্গা ✨🌸
+  </div>
 </div>
 
-
-<!-- =======================================================
+<!-- =========================
      HERO
-======================================================== -->
+========================= -->
 
 <header class="hero">
 
-    <div class="hero-content">
+  <div class="hero-content">
 
-        <div class="hero-small">
-            🌙 মা আসছেন • শারদ উৎসব ২০২৬ 🌙
-        </div>
-
-        <h1>
-            শারদীয়া দুর্গোৎসব ২০২৬
-        </h1>
-
-        <div class="hero-sub">
-            🌺 মা আসছেন 🌺
-        </div>
-
-        <p class="hero-quote">
-            "মায়ের আগমনে ভরে উঠুক প্রতিটি মন,
-            আনন্দে রঙিন হোক প্রতিটি জীবন।"
-        </p>
-
+    <div class="hero-small">
+      🌙 শারদীয়ার পবিত্র আগমনী 🌙
     </div>
+
+    <h1>
+      🌺 শারদীয়া দুর্গোৎসব ২০২৬ 🌺
+    </h1>
+
+    <div class="hero-sub">
+      ✨ মা আসছেন ✨
+    </div>
+
+    <p class="hero-quote">
+      "আলোয় আলোয় ভরে উঠুক চারদিক,
+      মায়ের আগমনে মুছে যাক সকল অন্ধকার।"
+    </p>
+
+  </div>
 
 </header>
 
-
-<!-- =======================================================
+<!-- =========================
      MUSIC
-======================================================== -->
+========================= -->
 
-<section class="reveal">
+<section>
 
-    <div class="section-title">
+  <div class="container">
 
-        <h2>
-            🎵 মায়ের আগমনী সুর
-        </h2>
+    <h2 class="section-title">
+      🎵 মায়ের আগমনী সুর 🎵
+    </h2>
 
-        <p>
-            মায়ের আগমনী সুরে শুরু হোক শারদ উৎসব
-        </p>
+    <div class="music-box">
 
-    </div>
+      <div class="music-inner">
 
-
-    <div class="music-card">
-
-        <img
-            class="music-image"
-            src="assets/music.jpg"
-            alt="মায়ের আগমনী"
-        >
+        <div class="music-cover">
+          <img
+            src="music.jpg"
+            alt="মায়ের আগমনী">
+        </div>
 
         <div class="music-info">
 
-            <h2>
-                🌺 মায়ের আগমনী সুর
-            </h2>
+          <div class="music-title">
+            🌸 মায়ের আগমনী সুর 🌸
+          </div>
 
-            <p>
-                ঢাকের তালে, কাঁসরের সুরে
-                মা দুর্গার আগমনী বার্তা।
-            </p>
+          <p style="color:#d9c9ef;margin-bottom:8px">
+            মা দুর্গার আগমনী সুরে শুরু হোক শারদীয়া।
+          </p>
 
-            <audio
-                controls
-                preload="metadata"
-            >
+          <audio
+            controls
+            preload="metadata">
+            <source
+              src="puja.mp3"
+              type="audio/mpeg">
+            আপনার ব্রাউজার অডিও চালাতে পারছে না।
+          </audio>
 
-                <source
-                    src="puja.mp3"
-                    type="audio/mpeg"
-                >
-
-                তোমার ব্রাউজার audio support করে না।
-
-            </audio>
-
-
-            <div
-                class="wave"
-                id="wave"
-            ></div>
+          <div class="wave" id="wave"></div>
 
         </div>
 
+      </div>
+
     </div>
+
+  </div>
 
 </section>
 
-
-<!-- =======================================================
+<!-- =========================
      COUNTDOWN
-======================================================== -->
+========================= -->
 
-<section class="countdown-section reveal">
+<section class="countdown-section">
 
-    <div class="countdown-title-box">
+  <div class="container">
 
-        <h2>
-            ✨ লাইভ পূজা কাউন্টডাউন ✨
-        </h2>
-
-    </div>
-
-
-    <!-- ALL 8 CARDS = DUAL -->
+    <h2 class="section-title">
+      ⏳ লাইভ পূজা কাউন্টডাউন ⏳
+    </h2>
 
     <div class="countdown-grid">
 
+      <!-- MAHALAYA -->
 
-        <!-- =================================================
-             MAHALAYA
-        ================================================== -->
+      <article class="count-card mahalaya">
 
-        <div
-            class="puja-card card-mahalaya"
-            data-festival="mahalaya"
-        >
+        <div class="card-content">
 
+          <div class="card-image">
             <img
-                src="assets/mahalaya.jpg"
-                alt="মহালয়া"
-            >
+              src="mahalaya.jpg"
+              alt="মহালয়া">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🌺 মহালয়া
-                </h3>
+            <h3 class="card-title">
+              🌙 মহালয়া
+            </h3>
 
-                <div class="card-date">
-                    মায়ের আগমনের সূচনা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-mahalaya"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-mahalaya"
-                ></div>
-
+            <div class="card-year">
+              মা আসার আগমনী
             </div>
+
+            <div
+              class="countdown"
+              id="count-mahalaya">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-mahalaya">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             SHASHTHI
-        ================================================== -->
+      <!-- SHASHTHI -->
 
-        <div
-            class="puja-card card-shashthi"
-            data-festival="shashthi"
-        >
+      <article class="count-card shashthi">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/shashthi.jpg"
-                alt="ষষ্ঠী"
-            >
+              src="shashthi.jpg"
+              alt="ষষ্ঠী">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🔱 ষষ্ঠী
-                </h3>
+            <h3 class="card-title">
+              🌺 ষষ্ঠী
+            </h3>
 
-                <div class="card-date">
-                    বোধন ও মায়ের পূজার সূচনা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-shashthi"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-shashthi"
-                ></div>
-
+            <div class="card-year">
+              বোধন ও আমন্ত্রণ
             </div>
+
+            <div
+              class="countdown"
+              id="count-shashthi">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-shashthi">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             SAPTAMI
-        ================================================== -->
+      <!-- SAPTAMI -->
 
-        <div
-            class="puja-card card-saptami"
-            data-festival="saptami"
-        >
+      <article class="count-card saptami">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/saptami.jpg"
-                alt="সপ্তমী"
-            >
+              src="saptami.jpg"
+              alt="সপ্তমী">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🌿 সপ্তমী
-                </h3>
+            <h3 class="card-title">
+              🌿 সপ্তমী
+            </h3>
 
-                <div class="card-date">
-                    নবপত্রিকা ও সপ্তমীর পূজা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-saptami"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-saptami"
-                ></div>
-
+            <div class="card-year">
+              নবপত্রিকা প্রবেশ
             </div>
+
+            <div
+              class="countdown"
+              id="count-saptami">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-saptami">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             ASHTAMI
-        ================================================== -->
+      <!-- ASHTAMI -->
 
-        <div
-            class="puja-card card-ashtami"
-            data-festival="ashtami"
-        >
+      <article class="count-card ashtami">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/ashtami.jpg"
-                alt="অষ্টমী"
-            >
+              src="ashtami.jpg"
+              alt="অষ্টমী">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🌸 অষ্টমী
-                </h3>
+            <h3 class="card-title">
+              🔱 অষ্টমী
+            </h3>
 
-                <div class="card-date">
-                    মহাষ্টমী ও সন্ধিপূজা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-ashtami"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-ashtami"
-                ></div>
-
+            <div class="card-year">
+              মহাষ্টমী ও সন্ধিপূজা
             </div>
+
+            <div
+              class="countdown"
+              id="count-ashtami">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-ashtami">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             NAVAMI
-        ================================================== -->
+      <!-- NAVAMI -->
 
-        <div
-            class="puja-card card-navami"
-            data-festival="navami"
-        >
+      <article class="count-card navami">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/navami.jpg"
-                alt="নবমী"
-            >
+              src="navami.jpg"
+              alt="নবমী">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🔥 নবমী
-                </h3>
+            <h3 class="card-title">
+              🌸 নবমী
+            </h3>
 
-                <div class="card-date">
-                    মহানবমীর পূজা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-navami"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-navami"
-                ></div>
-
+            <div class="card-year">
+              মহানবমীর পূজা
             </div>
+
+            <div
+              class="countdown"
+              id="count-navami">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-navami">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             DASHAMI
-        ================================================== -->
+      <!-- DASHAMI -->
 
-        <div
-            class="puja-card card-dashami"
-            data-festival="dashami"
-        >
+      <article class="count-card dashami">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/dashami.jpg"
-                alt="দশমী"
-            >
+              src="dashami.jpg"
+              alt="দশমী">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🪔 দশমী
-                </h3>
+            <h3 class="card-title">
+              🪔 দশমী
+            </h3>
 
-                <div class="card-date">
-                    বিজয়া দশমী ও মায়ের বিসর্জন
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-dashami"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-dashami"
-                ></div>
-
+            <div class="card-year">
+              বিজয়া দশমী
             </div>
+
+            <div
+              class="countdown"
+              id="count-dashami">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-dashami">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             KALI PUJA
-        ================================================== -->
+      <!-- KALI PUJA -->
 
-        <div
-            class="puja-card card-kali"
-            data-festival="kali"
-        >
+      <article class="count-card kali">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/kali.jpg"
-                alt="কালী পূজা"
-            >
+              src="kali.jpg"
+              alt="কালীপূজা">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    🪔 কালী পূজা
-                </h3>
+            <h3 class="card-title">
+              🖤 কালীপূজা
+            </h3>
 
-                <div class="card-date">
-                    মা কালীর আরাধনা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-kali"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-kali"
-                ></div>
-
+            <div class="card-year">
+              দীপান্বিতা অমাবস্যা
             </div>
+
+            <div
+              class="countdown"
+              id="count-kali">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-kali">
+            </div>
+
+          </div>
 
         </div>
 
+      </article>
 
-        <!-- =================================================
-             SARASWATI PUJA
-        ================================================== -->
+      <!-- SARASWATI PUJA -->
 
-        <div
-            class="puja-card card-saraswati"
-            data-festival="saraswati"
-        >
+      <article class="count-card saraswati">
 
+        <div class="card-content">
+
+          <div class="card-image">
             <img
-                src="assets/saraswati.jpg"
-                alt="সরস্বতী পূজা"
-            >
+              src="saraswati.jpg"
+              alt="সরস্বতী পূজা">
+          </div>
 
-            <div class="card-content">
+          <div class="card-body">
 
-                <h3>
-                    📚 সরস্বতী পূজা
-                </h3>
+            <h3 class="card-title">
+              🤍 সরস্বতী পূজা
+            </h3>
 
-                <div class="card-date">
-                    বিদ্যার দেবী মা সরস্বতীর পূজা
-                </div>
-
-                <div
-                    class="countdown"
-                    id="cd-saraswati"
-                ></div>
-
-                <div
-                    class="next-year"
-                    id="year-saraswati"
-                ></div>
-
+            <div class="card-year">
+              বসন্ত পঞ্চমী
             </div>
 
+            <div
+              class="countdown"
+              id="count-saraswati">
+            </div>
+
+            <div
+              class="card-date"
+              id="date-saraswati">
+            </div>
+
+          </div>
+
         </div>
+
+      </article>
 
     </div>
 
-</section>
-
-
-<!-- =======================================================
-     INTRO
-======================================================== -->
-
-<section class="reveal">
-
-    <div class="intro">
-
-        <h2>
-            🌺 মায়ের আগমনী বার্তা 🌺
-        </h2>
-
-        <p>
-            শরতের নীল আকাশ, কাশফুলের দোলা,
-            ঢাকের বাদ্য আর ধূপের গন্ধে
-            আবারও আসছেন মা দুর্গা।
-            এই ওয়েবসাইটে থাকছে দুর্গাপূজার
-            প্রতিটি গুরুত্বপূর্ণ দিনের লাইভ কাউন্টডাউন।
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
-
-<!-- =======================================================
+<!-- =========================
      TIMELINE
-======================================================== -->
+========================= -->
 
-<section class="reveal">
+<section>
 
-    <div class="section-title">
+  <div class="container">
 
-        <h2>
-            📜 দুর্গাপূজার দিনপঞ্জি
-        </h2>
-
-        <p>
-            মহালয়া থেকে বিজয়া দশমী
-        </p>
-
-    </div>
-
+    <h2 class="section-title">
+      📜 দুর্গাপূজার দিনপঞ্জি 📜
+    </h2>
 
     <div class="timeline">
 
-        <div class="timeline-item">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-            <h3>
-                🌺 মহালয়া
-            </h3>
-
-            <p>
-                মায়ের আগমনের সূচনা ও তর্পণ।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🌙 মহালয়া</h3>
+          <p>১০ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-        <div class="timeline-item">
-
-            <h3>
-                🔱 ষষ্ঠী
-            </h3>
-
-            <p>
-                বোধন ও দেবীর পূজার সূচনা।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🌺 ষষ্ঠী</h3>
+          <p>১৬ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-        <div class="timeline-item">
-
-            <h3>
-                🌿 সপ্তমী
-            </h3>
-
-            <p>
-                নবপত্রিকা স্নান ও সপ্তমীর পূজা।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🌿 সপ্তমী</h3>
+          <p>১৮ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-        <div class="timeline-item">
-
-            <h3>
-                🌸 অষ্টমী
-            </h3>
-
-            <p>
-                মহাষ্টমী ও সন্ধিপূজার পবিত্র সময়।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🔱 অষ্টমী</h3>
+          <p>১৯ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-        <div class="timeline-item">
-
-            <h3>
-                🔥 নবমী
-            </h3>
-
-            <p>
-                মহানবমীর পূজা ও আরাধনা।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🌸 নবমী</h3>
+          <p>২০ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
 
-        <div class="timeline-item">
-
-            <h3>
-                🪔 দশমী
-            </h3>
-
-            <p>
-                সিঁদুর খেলা, বিসর্জন ও বিজয়া।
-            </p>
-
+        <div class="timeline-box">
+          <h3>🪔 দশমী</h3>
+          <p>২১ অক্টোবর ২০২৬</p>
         </div>
+      </div>
 
     </div>
 
+  </div>
+
 </section>
 
-
-<!-- =======================================================
+<!-- =========================
      VIDEO
-======================================================== -->
+========================= -->
 
-<section class="reveal">
+<section>
 
-    <div class="section-title">
+  <div class="container">
 
-        <h2>
-            🎬 মায়ের আগমনী ভিডিও
-        </h2>
+    <h2 class="section-title">
+      🎬 শারদীয়ার ভিডিও 🎬
+    </h2>
 
-        <p>
-            শারদ উৎসবের বিশেষ মুহূর্ত
-        </p>
+    <div class="video-box">
 
-    </div>
+      <video
+        controls
+        preload="metadata"
+        poster="video-poster.jpg">
 
+        <source
+          src="puja.mp4"
+          type="video/mp4">
 
-    <div class="video-card">
+        আপনার ব্রাউজার ভিডিও চালাতে পারছে না।
 
-        <video
-            controls
-            preload="metadata"
-            poster="assets/video-poster.jpg"
-        >
-
-            <source
-                src="puja.mp4"
-                type="video/mp4"
-            >
-
-            তোমার ব্রাউজার ভিডিও support করে না।
-
-        </video>
+      </video>
 
     </div>
+
+  </div>
 
 </section>
 
+<!-- =========================
+     FINAL
+========================= -->
 
-<!-- =======================================================
-     FINAL MESSAGE
-======================================================== -->
+<section>
 
-<section class="reveal">
+  <div class="container">
 
-    <div class="final-message">
+    <div class="final-box">
 
-        <h2>
-            🌺 শুভ শারদীয়া 🌺
-        </h2>
+      <h2>
+        🌺 শুভ শারদীয়া 🌺
+      </h2>
 
-        <p>
-            মায়ের আশীর্বাদে সকলের জীবন হোক
-            সুখ, শান্তি ও সমৃদ্ধিতে পূর্ণ।
-        </p>
+      <p>
+        মায়ের আশীর্বাদে সকলের জীবন হোক
+        সুখ, শান্তি ও সমৃদ্ধিতে পূর্ণ।
+      </p>
 
-        <p>
-            🌸 জয় মা দুর্গা 🌸
-        </p>
+      <p>
+        🌸 মা দুর্গা সকলের মঙ্গল করুন 🌸
+      </p>
 
     </div>
 
+  </div>
+
 </section>
 
-
-<!-- =======================================================
+<!-- =========================
      FOOTER
-======================================================== -->
+========================= -->
 
 <footer>
 
-    <h2>
-        🌺 শুভ শারদীয়া 🌺
-    </h2>
+  <div class="footer-title">
+    🌺 শুভ শারদীয়া 🌺
+  </div>
 
-    <div
-        class="footer-letter-line footer-joy"
-        id="footerJoy"
-    ></div>
+  <div
+    class="footer-letter-line footer-joy"
+    id="footerJoy">
+  </div>
 
-    <div
-        class="footer-letter-line footer-prosenjit"
-        id="footerName"
-    ></div>
+  <div
+    class="footer-letter-line footer-prosenjit"
+    id="footerName">
+  </div>
 
-    <div class="footer-credit">
-
-        মায়ের আশীর্বাদে সকলের জীবন হোক
-        আনন্দময় ও সুন্দর।
-
-    </div>
+  <div class="footer-credit">
+    PREMIUM FESTIVAL COUNTDOWN • ২০২৬
+  </div>
 
 </footer>
 
+<!-- =========================
+     EFFECT LAYERS
+========================= -->
 
-<!-- =======================================================
+<div
+  class="stars"
+  id="stars">
+</div>
+
+<div
+  class="petals"
+  id="petals">
+</div>
+
+<!-- =========================
      JAVASCRIPT
-======================================================== -->
+========================= -->
 
 <script>
 
-/* =========================================================
-   STARS
-========================================================= */
+/* =========================
+   STAR EFFECT
+========================= */
 
-const stars=
-    document.getElementById("stars");
+const stars =
+  document.getElementById("stars");
 
-for(
-    let i=0;
-    i<45;
-    i++
-){
+const STAR_COUNT = 45;
 
-    const star=
-        document.createElement("span");
+for(let i=0;i<STAR_COUNT;i++){
 
-    star.className=
-        "star-bg";
+  const s =
+    document.createElement("span");
 
-    star.style.left=
-        (Math.random()*100)+"%";
+  s.className="star";
 
-    star.style.top=
-        (Math.random()*100)+"%";
+  s.style.left =
+    Math.random()*100+"%";
 
-    star.style.animationDelay=
-        (Math.random()*3)+"s";
+  s.style.top =
+    Math.random()*100+"%";
 
-    const size=
-        1+Math.random()*2;
+  s.style.animationDelay =
+    (Math.random()*2)+"s";
 
-    star.style.width=
-        size+"px";
+  s.style.opacity =
+    (.25 + Math.random()*.75);
 
-    star.style.height=
-        size+"px";
-
-    stars.appendChild(star);
+  stars.appendChild(s);
 }
 
+/* =========================
+   PETAL EFFECT
+========================= */
 
-/* =========================================================
-   PETALS
-========================================================= */
+const petals =
+  document.getElementById("petals");
 
 function createPetal(){
 
-    const petal=
-        document.createElement("div");
+  const p =
+    document.createElement("span");
 
-    petal.className=
-        "petal";
+  p.className="petal";
 
-    petal.textContent=
-        Math.random()>.5
-        ? "🌸"
-        : "🌺";
+  p.style.left =
+    Math.random()*100+"%";
 
-    petal.style.left=
-        (Math.random()*100)+"vw";
+  p.style.setProperty(
+    "--x",
+    ((Math.random()-.5)*180)+"px"
+  );
 
-    petal.style.fontSize=
-        (12+Math.random()*10)+"px";
+  const duration =
+    6 + Math.random()*5;
 
-    petal.style.animationDuration=
-        (7+Math.random()*5)+"s";
+  p.style.animationDuration =
+    duration+"s";
 
-    petal.style.setProperty(
-        "--drift",
-        ((Math.random()-.5)*180)+"px"
-    );
+  p.style.transform =
+    `rotate(${Math.random()*180}deg)`;
 
-    document.body.appendChild(
-        petal
-    );
+  petals.appendChild(p);
 
-    setTimeout(
-        ()=>{
-            petal.remove();
-        },
-        13000
-    );
+  setTimeout(()=>{
+    p.remove();
+  },duration*1000+500);
 }
 
-/*
-   Low-lag:
-   প্রতি 2.5 second-এ মাত্র একটি petal
-*/
+setInterval(createPetal,2500);
 
-setInterval(
-    createPetal,
-    2500
-);
-
-
-/* =========================================================
+/* =========================
    WAVE
-========================================================= */
+========================= */
 
-const wave=
-    document.getElementById("wave");
+const wave =
+  document.getElementById("wave");
 
-for(
-    let i=0;
-    i<24;
-    i++
-){
+for(let i=0;i<24;i++){
 
-    const bar=
-        document.createElement("span");
+  const bar =
+    document.createElement("span");
 
-    bar.style.animationDelay=
-        (i*.04)+"s";
-
-    wave.appendChild(
-        bar
-    );
+  wave.appendChild(bar);
 }
 
-
-/* =========================================================
+/* =========================
    FESTIVAL DATA
-========================================================= */
+========================= */
 
-const festivalData={
+const data = {
 
-    2026:{
-        mahalaya:"2026-10-10",
-        shashthi:"2026-10-16",
-        saptami:"2026-10-18",
-        ashtami:"2026-10-19",
-        navami:"2026-10-20",
-        dashami:"2026-10-21",
-        kali:"2026-11-08",
-        saraswati:"2027-02-11"
-    },
+  2026:{
+    mahalaya:"2026-10-10",
+    shashthi:"2026-10-16",
+    saptami:"2026-10-18",
+    ashtami:"2026-10-19",
+    navami:"2026-10-20",
+    dashami:"2026-10-21",
+    kali:"2026-11-08",
+    saraswati:"2027-02-11"
+  },
 
-    2027:{
-        mahalaya:"2027-09-29",
-        shashthi:"2027-10-05",
-        saptami:"2027-10-06",
-        ashtami:"2027-10-07",
-        navami:"2027-10-09",
-        dashami:"2027-10-10",
-        kali:"2027-10-28",
-        saraswati:"2028-01-31"
-    },
+  2027:{
+    mahalaya:"2027-09-29",
+    shashthi:"2027-10-05",
+    saptami:"2027-10-06",
+    ashtami:"2027-10-07",
+    navami:"2027-10-09",
+    dashami:"2027-10-10",
+    kali:"2027-10-28",
+    saraswati:"2028-01-31"
+  },
 
-    2028:{
-        mahalaya:"2028-09-18",
-        shashthi:"2028-09-23",
-        saptami:"2028-09-24",
-        ashtami:"2028-09-26",
-        navami:"2028-09-27",
-        dashami:"2028-09-28",
-        kali:"2028-10-17",
-        saraswati:"2029-01-19"
-    },
+  2028:{
+    mahalaya:"2028-09-18",
+    shashthi:"2028-09-23",
+    saptami:"2028-09-24",
+    ashtami:"2028-09-26",
+    navami:"2028-09-27",
+    dashami:"2028-09-28",
+    kali:"2028-10-17",
+    saraswati:"2029-01-19"
+  },
 
-    2029:{
-        mahalaya:"2029-10-07",
-        shashthi:"2029-10-12",
-        saptami:"2029-10-13",
-        ashtami:"2029-10-14",
-        navami:"2029-10-15",
-        dashami:"2029-10-16",
-        kali:"2029-11-05",
-        saraswati:"2030-02-06"
-    },
+  2029:{
+    mahalaya:"2029-10-07",
+    shashthi:"2029-10-12",
+    saptami:"2029-10-13",
+    ashtami:"2029-10-14",
+    navami:"2029-10-15",
+    dashami:"2029-10-16",
+    kali:"2029-11-05",
+    saraswati:"2030-02-06"
+  },
 
-    2030:{
-        mahalaya:"2030-09-26",
-        shashthi:"2030-10-02",
-        saptami:"2030-10-03",
-        ashtami:"2030-10-04",
-        navami:"2030-10-05",
-        dashami:"2030-10-06",
-        kali:"2030-10-25",
-        saraswati:"2031-02-06"
-    },
+  2030:{
+    mahalaya:"2030-09-26",
+    shashthi:"2030-10-02",
+    saptami:"2030-10-03",
+    ashtami:"2030-10-04",
+    navami:"2030-10-05",
+    dashami:"2030-10-06",
+    kali:"2030-10-25",
+    saraswati:"2031-01-27"
+  },
 
-    2031:{
-        mahalaya:"2031-10-15",
-        shashthi:"2031-10-21",
-        saptami:"2031-10-22",
-        ashtami:"2031-10-23",
-        navami:"2031-10-24",
-        dashami:"2031-10-25",
-        kali:"2031-11-14",
-        saraswati:"2032-01-27"
-    }
+  2031:{
+    mahalaya:"2031-10-15",
+    shashthi:"2031-10-21",
+    saptami:"2031-10-22",
+    ashtami:"2031-10-23",
+    navami:"2031-10-24",
+    dashami:"2031-10-25",
+    kali:"2031-11-14",
+    saraswati:"2032-02-14"
+  }
 
 };
 
-
-/* =========================================================
+/* =========================
    FESTIVAL NAMES
-========================================================= */
+========================= */
 
-const festivalNames={
+const names = {
 
-    mahalaya:"মহালয়া",
-
-    shashthi:"ষষ্ঠী",
-
-    saptami:"সপ্তমী",
-
-    ashtami:"অষ্টমী",
-
-    navami:"নবমী",
-
-    dashami:"দশমী",
-
-    kali:"কালী পূজা",
-
-    saraswati:"সরস্বতী পূজা"
+  mahalaya:"মহালয়া",
+  shashthi:"ষষ্ঠী",
+  saptami:"সপ্তমী",
+  ashtami:"অষ্টমী",
+  navami:"নবমী",
+  dashami:"দশমী",
+  kali:"কালীপূজা",
+  saraswati:"সরস্বতী পূজা"
 
 };
 
+/* =========================
+   BANGLA MONTH
+========================= */
 
-/* =========================================================
-   NEXT FESTIVAL DATE
-========================================================= */
+const bnMonths = [
+  "জানুয়ারি",
+  "ফেব্রুয়ারি",
+  "মার্চ",
+  "এপ্রিল",
+  "মে",
+  "জুন",
+  "জুলাই",
+  "আগস্ট",
+  "সেপ্টেম্বর",
+  "অক্টোবর",
+  "নভেম্বর",
+  "ডিসেম্বর"
+];
 
-function getNextFestivalDate(type){
+function bnNum(n){
 
-    const now=
-        Date.now();
+  return String(n)
+    .replace(/0/g,"০")
+    .replace(/1/g,"১")
+    .replace(/2/g,"২")
+    .replace(/3/g,"৩")
+    .replace(/4/g,"৪")
+    .replace(/5/g,"৫")
+    .replace(/6/g,"৬")
+    .replace(/7/g,"৭")
+    .replace(/8/g,"৮")
+    .replace(/9/g,"৯");
+}
 
-    const years=
-        Object.keys(
-            festivalData
-        )
-        .map(Number)
-        .sort(
-            (a,b)=>a-b
-        );
+/* =========================
+   DATE FORMAT
+========================= */
 
-    for(
-        const year of years
-    ){
+function formatDate(date){
 
-        if(
-            !festivalData[year][type]
-        ){
+  return (
+    bnNum(date.getDate()) +
+    " " +
+    bnMonths[date.getMonth()] +
+    " " +
+    bnNum(date.getFullYear())
+  );
+}
 
-            continue;
-        }
+/* =========================
+   NEXT FESTIVAL
+========================= */
 
-        const target=
-            new Date(
-                festivalData[year][type]
-                +
-                "T00:00:00+05:30"
-            ).getTime();
+function getNextFestivalDate(key){
 
-        if(
-            target>now
-        ){
+  const now =
+    new Date();
 
-            return{
-                date:target,
-                year:year
-            };
+  const years =
+    Object.keys(data)
+      .map(Number)
+      .sort((a,b)=>a-b);
 
-        }
+  for(const year of years){
 
-    }
+    const value =
+      data[year][key];
 
+    if(!value) continue;
 
     /*
-       Future data শেষ হলে
-       last known date থেকে next year.
+      India/Bengal local date.
+      Puja countdown day-start target.
     */
 
-    const lastYear=
-        years[
-            years.length-1
-        ];
+    const target =
+      new Date(
+        value + "T00:00:00+05:30"
+      );
 
-    const lastDate=
-        festivalData[
-            lastYear
-        ][type];
+    if(target.getTime() > now.getTime()){
 
-    if(lastDate){
-
-        const d=
-            new Date(
-                lastDate
-                +
-                "T00:00:00+05:30"
-            );
-
-        d.setFullYear(
-            d.getFullYear()+1
-        );
-
-        return{
-            date:d.getTime(),
-            year:d.getFullYear()
-        };
-
+      return target;
     }
+  }
 
-    return null;
-}
+  /*
+     Future fallback.
+     Last known date-এর year + 1.
+  */
 
+  const lastYear =
+    years[years.length-1];
 
-/* =========================================================
-   TWO DIGIT
-========================================================= */
+  const lastValue =
+    data[lastYear][key];
 
-function two(n){
+  if(!lastValue) return null;
 
-    return String(n)
-        .padStart(2,"0");
-
-}
-
-
-/* =========================================================
-   RENDER ONE COUNTDOWN
-========================================================= */
-
-function renderCountdown(type){
-
-    const box=
-        document.getElementById(
-            "cd-"+type
-        );
-
-    const yearBox=
-        document.getElementById(
-            "year-"+type
-        );
-
-    if(
-        !box ||
-        !yearBox
-    ){
-
-        return;
-    }
-
-    const targetInfo=
-        getNextFestivalDate(
-            type
-        );
-
-    if(!targetInfo){
-
-        box.innerHTML=
-            "<div class='time-box'>—</div>";
-
-        return;
-    }
-
-
-    const diff=
-        Math.max(
-            0,
-            targetInfo.date-
-            Date.now()
-        );
-
-
-    let totalSeconds=
-        Math.floor(
-            diff/1000
-        );
-
-
-    const days=
-        Math.floor(
-            totalSeconds/86400
-        );
-
-
-    totalSeconds%=
-        86400;
-
-
-    const hours=
-        Math.floor(
-            totalSeconds/3600
-        );
-
-
-    totalSeconds%=
-        3600;
-
-
-    const minutes=
-        Math.floor(
-            totalSeconds/60
-        );
-
-
-    const seconds=
-        totalSeconds%60;
-
-
-    box.innerHTML=`
-
-        <div class="time-box">
-
-            <span class="time-number">
-                ${days}
-            </span>
-
-            <span class="time-label">
-                দিন
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span class="time-number">
-                ${two(hours)}
-            </span>
-
-            <span class="time-label">
-                ঘণ্টা
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span class="time-number">
-                ${two(minutes)}
-            </span>
-
-            <span class="time-label">
-                মিনিট
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <span class="time-number">
-                ${two(seconds)}
-            </span>
-
-            <span class="time-label">
-                সেকেন্ড
-            </span>
-
-        </div>
-
-    `;
-
-
-    yearBox.textContent=
-        targetInfo.year
-        +
-        " সালের "
-        +
-        festivalNames[type];
-
-}
-
-
-/* =========================================================
-   ALL FESTIVALS
-========================================================= */
-
-const festivals=[
-
-    "mahalaya",
-    "shashthi",
-    "saptami",
-    "ashtami",
-    "navami",
-    "dashami",
-    "kali",
-    "saraswati"
-
-];
-
-
-/* =========================================================
-   UPDATE ALL
-========================================================= */
-
-function updateAllCountdowns(){
-
-    festivals.forEach(
-        renderCountdown
+  const old =
+    new Date(
+      lastValue + "T00:00:00+05:30"
     );
 
+  const next =
+    new Date(old);
+
+  next.setFullYear(
+    old.getFullYear()+1
+  );
+
+  return next;
 }
 
+/* =========================
+   COUNTDOWN FORMAT
+========================= */
 
-/*
-   একটি মাত্র interval।
-   তাই ৮টি countdown হলেও
-   ৮টি আলাদা timer নেই।
-*/
+function countdownHTML(diff){
 
-updateAllCountdowns();
+  if(diff <= 0){
 
-setInterval(
-    updateAllCountdowns,
-    1000
-);
+    return `
+      <div class="time-box">
+        <div class="time-number">🎉</div>
+        <div class="time-label">শুরু</div>
+      </div>
+      <div class="time-box">
+        <div class="time-number">🎉</div>
+        <div class="time-label">শুরু</div>
+      </div>
+      <div class="time-box">
+        <div class="time-number">🎉</div>
+        <div class="time-label">হয়ে</div>
+      </div>
+      <div class="time-box">
+        <div class="time-number">🎉</div>
+        <div class="time-label">গেল</div>
+      </div>
+    `;
+  }
 
+  let total =
+    Math.floor(diff/1000);
 
-/* =========================================================
-   FOOTER LETTER ANIMATION
-========================================================= */
+  const days =
+    Math.floor(total/86400);
 
-const footerColors=[
+  total %= 86400;
 
-    "#ff1744",
-    "#ff7a00",
-    "#ffe600",
-    "#00e676",
-    "#00eaff",
-    "#2979ff",
-    "#7b00ff",
-    "#d500f9",
-    "#ff00aa",
-    "#ff1493"
+  const hours =
+    Math.floor(total/3600);
 
+  total %= 3600;
+
+  const minutes =
+    Math.floor(total/60);
+
+  const seconds =
+    total%60;
+
+  return `
+
+    <div class="time-box">
+
+      <div class="time-number">
+        ${bnNum(days)}
+      </div>
+
+      <div class="time-label">
+        দিন
+      </div>
+
+    </div>
+
+    <div class="time-box">
+
+      <div class="time-number">
+        ${bnNum(hours)}
+      </div>
+
+      <div class="time-label">
+        ঘণ্টা
+      </div>
+
+    </div>
+
+    <div class="time-box">
+
+      <div class="time-number">
+        ${bnNum(minutes)}
+      </div>
+
+      <div class="time-label">
+        মিনিট
+      </div>
+
+    </div>
+
+    <div class="time-box">
+
+      <div class="time-number">
+        ${bnNum(seconds)}
+      </div>
+
+      <div class="time-label">
+        সেকেন্ড
+      </div>
+
+    </div>
+
+  `;
+}
+
+/* =========================
+   UPDATE ONE COUNTDOWN
+========================= */
+
+function updateCountdown(key){
+
+  const box =
+    document.getElementById(
+      "count-"+key
+    );
+
+  const dateBox =
+    document.getElementById(
+      "date-"+key
+    );
+
+  if(!box || !dateBox) return;
+
+  const target =
+    getNextFestivalDate(key);
+
+  if(!target){
+
+    box.innerHTML =
+      countdownHTML(0);
+
+    dateBox.textContent =
+      "তারিখ পাওয়া যায়নি";
+
+    return;
+  }
+
+  const now =
+    new Date();
+
+  let diff =
+    target.getTime() -
+    now.getTime();
+
+  /*
+     যদি countdown zero হয়ে যায়,
+     সঙ্গে সঙ্গে ওই festival-এর
+     পরের available year নেবে।
+  */
+
+  if(diff <= 0){
+
+    setTimeout(()=>{
+      updateCountdown(key);
+    },1100);
+
+    return;
+  }
+
+  box.innerHTML =
+    countdownHTML(diff);
+
+  dateBox.textContent =
+    "পরবর্তী: " + formatDate(target);
+}
+
+/* =========================
+   ALL COUNTDOWNS
+========================= */
+
+const festivalKeys = [
+  "mahalaya",
+  "shashthi",
+  "saptami",
+  "ashtami",
+  "navami",
+  "dashami",
+  "kali",
+  "saraswati"
 ];
 
+function updateAll(){
+
+  festivalKeys.forEach(
+    updateCountdown
+  );
+}
+
+updateAll();
+
+setInterval(
+  updateAll,
+  1000
+);
+
+/* =========================
+   FOOTER LETTER ANIMATION
+========================= */
+
+const footerColors = [
+
+  "#ff1744",
+  "#ff7a00",
+  "#ffe600",
+  "#00ff66",
+  "#00eaff",
+  "#2979ff",
+  "#7b00ff",
+  "#d500f9",
+  "#ff00aa",
+  "#ff1493"
+
+];
 
 function splitGraphemes(text){
 
-    if(
-        typeof Intl!=="undefined" &&
-        Intl.Segmenter
-    ){
+  if(
+    typeof Intl !== "undefined" &&
+    Intl.Segmenter
+  ){
 
-        const segmenter=
-            new Intl.Segmenter(
-                "bn",
-                {
-                    granularity:
-                        "grapheme"
-                }
-            );
+    const segmenter =
+      new Intl.Segmenter(
+        "bn",
+        {
+          granularity:"grapheme"
+        }
+      );
 
-        return[
-            ...segmenter.segment(text)
-        ].map(
-            x=>x.segment
-        );
+    return [
+      ...segmenter.segment(text)
+    ].map(x=>x.segment);
+  }
 
-    }
-
-    return Array.from(text);
-
+  return Array.from(text);
 }
-
-
-/* =========================================================
-   CREATE FOOTER LETTERS
-========================================================= */
 
 function makeFooterLetters(
-    id,
-    text,
-    startDelay
+  id,
+  text,
+  startDelay,
+  letterDelay
 ){
 
-    const container=
-        document.getElementById(id);
+  const container =
+    document.getElementById(id);
 
-    if(!container){
-        return;
+  if(!container) return;
+
+  container.innerHTML="";
+
+  const letters =
+    splitGraphemes(text);
+
+  letters.forEach(
+    (letter,index)=>{
+
+      const span =
+        document.createElement("span");
+
+      span.className =
+        "footer-letter";
+
+      if(
+        letter === " " ||
+        letter === "\u00A0"
+      ){
+
+        span.innerHTML =
+          "&nbsp;";
+
+      }else{
+
+        span.textContent =
+          letter;
+      }
+
+      const color =
+        footerColors[
+          index %
+          footerColors.length
+        ];
+
+      span.style.setProperty(
+        "--c",
+        color
+      );
+
+      span.style.setProperty(
+        "--d",
+        (
+          startDelay +
+          index*letterDelay
+        )+"ms"
+      );
+
+      container.appendChild(span);
     }
-
-    container.innerHTML="";
-
-
-    const letters=
-        splitGraphemes(text);
-
-
-    letters.forEach(
-        (letter,index)=>{
-
-            const span=
-                document.createElement(
-                    "span"
-                );
-
-            span.className=
-                "footer-letter";
-
-
-            if(
-                letter===" "
-                ||
-                letter==="\u00A0"
-            ){
-
-                span.innerHTML=
-                    "&nbsp;";
-
-            }else{
-
-                span.textContent=
-                    letter;
-
-            }
-
-
-            const color=
-                footerColors[
-                    index%
-                    footerColors.length
-                ];
-
-
-            span.style.setProperty(
-                "--c",
-                color
-            );
-
-
-            span.style.setProperty(
-                "--d",
-                (
-                    startDelay+
-                    index*160
-                )
-                +
-                "ms"
-            );
-
-
-            container.appendChild(
-                span
-            );
-
-        }
-    );
-
+  );
 }
-
-
-/* =========================================================
-   START FOOTER
-========================================================= */
 
 function startFooterAnimation(){
 
-    makeFooterLetters(
-        "footerJoy",
-        "🌸 জয় মা দুর্গা 🌸",
-        0
-    );
+  makeFooterLetters(
+    "footerJoy",
+    "🌸 জয় মা দুর্গা 🌸",
+    0,
+    180
+  );
 
-
-    makeFooterLetters(
-        "footerName",
-        "PROSENJIT RAY",
-        1800
-    );
-
+  makeFooterLetters(
+    "footerName",
+    "PROSENJIT RAY",
+    2600,
+    180
+  );
 }
 
 startFooterAnimation();
 
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-const revealItems=
-    document.querySelectorAll(
-        ".reveal"
-    );
-
-
-if(
-    "IntersectionObserver"
-    in window
-){
-
-    const observer=
-        new IntersectionObserver(
-            entries=>{
-
-                entries.forEach(
-                    entry=>{
-
-                        if(
-                            entry.isIntersecting
-                        ){
-
-                            entry.target.classList.add(
-                                "show"
-                            );
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold:.08
-            }
-        );
-
-
-    revealItems.forEach(
-        item=>
-            observer.observe(item)
-    );
-
-}else{
-
-    revealItems.forEach(
-        item=>
-            item.classList.add(
-                "show"
-            )
-    );
-
-}
-
 </script>
 
 </body>
-  </html>
+   </html>
