@@ -1,1 +1,1 @@
-# Durga-Puja-2026
+# Durga-Puja
